@@ -8,6 +8,11 @@
 
 #import "ApplicationDelegate.h"
 
+#define kCommentPush @"{\"aps\":{\"alert\":\"李斯评论了你的帖子#帖子内容帖子内容帖子内容\",\"badge\":1,\"sound\":\"chime.aiff\",\"category\":\"category1\",\"info\":{\"type\":1,\"postID\":\"117\",\"id\":\"1\",\"uid\":\"10\"}}}"
+
+#define kPraisePush  @"{\"aps\":{\"alert\":\"你还有一个新粉丝\",\"badge\":1,\"sound\":\"chime.aiff\",\"category\":\"category1\",\"info\":{\"type\":1,\"postID\":\"117\",\"id\":\"1\",\"uid\":\"10\"}}}"
+#define kActivityPush @"{\"aps\":{\"alert\":\"活动内容\",\"sound\":\"chime.aiff\",\"category\":\"category1\",\"info\":{\"type\":3,\"url\":\"http://www.baidu.com\"}}}"
+
 @interface ApplicationDelegate ()
 #pragma mark Properties
 @property(nonatomic, retain) NSString *deviceToken, *payload, *certificate;
@@ -23,9 +28,9 @@
 - (id)init {
 	self = [super init];
 	if(self != nil) {
-		self.deviceToken = @"";
-		self.payload = @"{\"aps\":{\"alert\":\"This is some fancy message.\",\"badge\":1}}";
-		self.certificate = [[NSBundle mainBundle] pathForResource:@"apns" ofType:@"cer"];
+		self.deviceToken = @"c549c562 e37a0102 1548036b 28ac6486 c0eaf614 f3d48794 550c6fcb 6d17880a";
+        self.payload = kActivityPush;//@"{\"aps\":{\"alert\":\"xxxxxx\",\"category\":\"category1\"}}";
+		self.certificate = [[NSBundle mainBundle] pathForResource:@"PushDevCSR" ofType:@"cer"];
 	}
 	return self;
 }
